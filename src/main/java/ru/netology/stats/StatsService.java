@@ -12,12 +12,10 @@ public class StatsService {
 
     public int calculateMiddle(int[] sales) {
         int months = sales.length;
-        int total = 0;
+        int total = calculateTotal(sales);
         int middle = 0;
-        for (int value : sales) {
-            total += value;
-            middle = total / months;
-        }
+        middle = total / months;
+
         return middle;
     }
 
@@ -42,7 +40,7 @@ public class StatsService {
         int maxMonth = 0;
         for (int value : sales) {
             month++;
-            if (min > value) {
+            if (min >= value) {
                 min = value;
                 maxMonth = month;
             }
